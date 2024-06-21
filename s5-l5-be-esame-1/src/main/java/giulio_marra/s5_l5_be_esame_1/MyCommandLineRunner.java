@@ -3,11 +3,14 @@ package giulio_marra.s5_l5_be_esame_1;
 import giulio_marra.s5_l5_be_esame_1.entities.Edificio;
 import giulio_marra.s5_l5_be_esame_1.entities.Utente;
 import giulio_marra.s5_l5_be_esame_1.service.EdificioService;
+import giulio_marra.s5_l5_be_esame_1.service.PostazioneService;
 import giulio_marra.s5_l5_be_esame_1.service.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 @Component
 public class MyCommandLineRunner implements CommandLineRunner {
@@ -16,6 +19,9 @@ public class MyCommandLineRunner implements CommandLineRunner {
 
     @Autowired
     private UtenteService utenteService;
+
+    @Autowired
+    private PostazioneService postazioneService;
 
     @Autowired
     private AnnotationConfigApplicationContext ctx;
@@ -34,6 +40,10 @@ public class MyCommandLineRunner implements CommandLineRunner {
         Utente utente3 = new Utente("Alessia", "Marchese", "noneunamail@gmail.com");
         Utente utente5 = new Utente("Luigina", "Rossi", "questaeunamail@gmail.com");
         //utenteService.saveUtente(utente5);
+
+        Optional<Utente> utente = utenteService.findByEmail("giuliomarramail@gmail.com");
+
+        //Prenotazione prenotazione = new Prenotazione(utente,);
 
 
     }
