@@ -24,9 +24,9 @@ public class Postazione {
     @Enumerated(EnumType.STRING)
     private TipoPostazione tipo;
 
-    //@ManyToOne
-    //@JoinColumn(name = "id_edificio")
-    //private Edificio edificio;
+    @ManyToOne
+    @JoinColumn(name = "id_edificio")
+    private Edificio edificio;
 
     @OneToMany(mappedBy = "postazione")
     private List<Prenotazione> prenotazioni;

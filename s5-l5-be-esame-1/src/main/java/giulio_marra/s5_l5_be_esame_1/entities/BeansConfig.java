@@ -4,25 +4,41 @@ import giulio_marra.s5_l5_be_esame_1.enums.TipoPostazione;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Configuration
 public class BeansConfig {
 
     @Bean
     public Edificio biblioteca() {
-
-        return new Edificio("Biblioteca", "Napoli");
+        List<Postazione> postazioni = new ArrayList<>();
+        postazioni.add(postazione1Biblioteca());
+        postazioni.add(postazione2Biblioteca());
+        postazioni.add(postazione3Biblioteca());
+        return new Edificio("Biblioteca", "Napoli", postazioni);
     }
 
     @Bean
     public Edificio palace() {
-        return new Edificio("Palace", "Roma");
+        List<Postazione> postazioni = new ArrayList<>();
+        postazioni.add(postazione1palace());
+        postazioni.add(postazione2palace());
+        postazioni.add(postazione3palace());
+        return new Edificio("Palace", "Roma", postazioni);
     }
 
     @Bean
     public Edificio grandBar() {
-
-        return new Edificio("GrandBar", "Milano");
+        List<Postazione> postazioni = new ArrayList<>();
+        postazioni.add(postazione1GrandBar());
+        postazioni.add(postazione2GrandBar());
+        postazioni.add(postazione3GrandBar());
+        postazioni.add(postazione4GrandBar());
+        postazioni.add(postazione5GrandBar());
+        return new Edificio("GrandBar", "Milano", postazioni);
     }
+
 
     // POSTAZIONI
 
