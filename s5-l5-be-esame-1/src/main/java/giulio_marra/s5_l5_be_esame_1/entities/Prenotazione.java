@@ -4,6 +4,8 @@ package giulio_marra.s5_l5_be_esame_1.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "prenotazioni")
 @Getter
@@ -24,33 +26,13 @@ public class Prenotazione {
     @JoinColumn(name = "id_postazione")
     private Postazione postazione;
 
-    public Prenotazione(Utente utente, Postazione postazione) {
+    private LocalDate giornoPrenotazione;
+
+    public Prenotazione(Utente utente, Postazione postazione, LocalDate giornoPrenotazione) {
         this.utente = utente;
         this.postazione = postazione;
+        this.giornoPrenotazione = giornoPrenotazione;
     }
 
-    public Utente getUtente() {
-        return utente;
-    }
 
-    public void setUtente(Utente utente) {
-        this.utente = utente;
-    }
-
-    public Postazione getPostazione() {
-        return postazione;
-    }
-
-    public void setPostazione(Postazione postazione) {
-        this.postazione = postazione;
-    }
-
-    @Override
-    public String toString() {
-        return "Prenotazione{" +
-                "id=" + id +
-                ", utente=" + utente +
-                ", postazione=" + postazione +
-                '}';
-    }
 }
